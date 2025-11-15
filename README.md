@@ -1,70 +1,61 @@
-# ServiceMonitor
+<div align="center">
+  <h1 style="margin-top: 24px;">💎 ServiceMonitor by @lovlydev</h1>
 
-[![Python Version](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+  <p style="font-size: 18px; margin-bottom: 24px;">
+    <b>Python script for monitoring system services with Telegram notifications</b>
+  </p>
 
-Python script for monitoring system services with Telegram notifications.
+[Report Bug](https://github.com/lovlygod/ServiceMonitor/issues) · [Request Feature](https://github.com/lovlygod/ServiceMonitor/issues)
 
-## Description
+</div>
 
-ServiceMonitor is a utility for monitoring system services that periodically checks whether specified services (e.g., nginx, mysql, docker) are running on the server. If a service crashes or stops responding, the script sends a notification via Telegram.
+---
 
-This is useful for DevOps and system administrators, as well as for projects with their own servers.
+## ✨ Features
 
-## Features
+- 🔍 **Service Status Checking** - Monitor system services using subprocess
+- 📱 **Telegram Notifications** - Get alerts when services fail
+- 📝 **Logging to File** - Keep track of service status with timestamps
+- ⚙️ **Configuration via File** - Easy setup through config.yaml
+- 🐧 **Linux System Support** - Optimized for Linux environments
+- 🧪 **Test Mode** - Ability to run without Telegram token for testing
+- 🚀 **Multiple Services** - Support for monitoring a large number of system services
 
-- Service status checking using subprocess
-- Telegram notifications
-- Logging to file with timestamps
-- Configuration via configuration file
-- Linux system support
-- Ability to run without Telegram token (for testing)
-- Support for a large number of system services
+## 🚀 Quick Start
 
-## Installation
+### 1. Installation
 
-1. Clone the repository:
 ```bash
 git clone https://github.com/lovlygod/ServiceMonitor.git
 cd ServiceMonitor
-```
-
-2. Install dependencies:
-```bash
 pip install -r requirements.txt
 ```
 
-3. Configure the config.yaml file:
-   - Specify services to monitor
-   - Add Telegram bot token
-   - Specify chat ID for notifications
-   - Set check interval
+### 2. Configuration
 
-## Usage
+Copy example configuration and edit:
 
-Run the script:
 ```bash
-python servicemonitor.py
+cp config.yaml config.yaml
 ```
 
-## Configuration
+Edit `config.yaml` file:
 
-Example config.yaml file:
 ```yaml
 services:
   - name: nginx
     check_command: systemctl is-active nginx
- - name: mysql
+  - name: mysql
     check_command: systemctl is-active mysql
- - name: docker
+  - name: docker
     check_command: systemctl is-active docker
   - name: apache2
     check_command: systemctl is-active apache2
- - name: postgresql
+  - name: postgresql
     check_command: systemctl is-active postgresql
   - name: redis
     check_command: systemctl is-active redis
- - name: mongodb
+  - name: mongodb
     check_command: systemctl is-active mongodb
   - name: ssh
     check_command: systemctl is-active ssh
@@ -72,7 +63,7 @@ services:
     check_command: systemctl is-active fail2ban
   - name: cron
     check_command: systemctl is-active cron
- - name: ufw
+  - name: ufw
     check_command: systemctl is-active ufw
   - name: rsyslog
     check_command: systemctl is-active rsyslog
@@ -88,7 +79,7 @@ services:
     check_command: systemctl is-active rabbitmq-server
   - name: supervisor
     check_command: systemctl is-active supervisor
- - name: logrotate
+  - name: logrotate
     check_command: systemctl is-active logrotate
   - name: unattended-upgrades
     check_command: systemctl is-active unattended-upgrades
@@ -107,34 +98,39 @@ telegram_chat_id: "YOUR_CHAT_ID"
 interval: 60  # check every 60 seconds
 ```
 
+### 3. Usage
+
+Run the script:
+
+```bash
+python servicemonitor.py
+```
+
 ## Supported Services
 
 ServiceMonitor can monitor the status of a large number of system services, including:
 
-- Web servers: nginx, apache2
-- Databases: mysql, postgresql, mongodb
-- System services: ssh, cron, rsyslog
-- Network services: bind9 (DNS), postfix (mail)
-- Security services: fail2ban, ufw, apparmor
-- And other popular services
+| Category | Services |
+|----------|----------|
+| **Web Servers** | nginx, apache2 |
+| **Databases** | mysql, postgresql, mongodb |
+| **System Services** | ssh, cron, rsyslog |
+| **Network Services** | bind9 (DNS), postfix (mail) |
+| **Security Services** | fail2ban, ufw, apparmor |
+| **Other Services** | docker, redis, elasticsearch, rabbitmq-server |
 
-## Technology Stack
+## Requirements
 
-- Python 3.11+
+- Python >= 3.11
 - Libraries: python-telegram-bot, PyYAML, subprocess, logging
 
 ## License
+[MIT](LICENSE)
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+<div align="center">
 
-## Contributing
+### Made with ❤️ by [@lovly](https://t.me/lovlyswag)
 
-If you would like to contribute to the project, please discuss the changes you want to make via issue or email first.
+**Star ⭐ this repo if you found it useful!**
 
-## Author
-
-lovlygod
-
-## Support
-
-If you have any questions or issues, please create an issue in the repository.
+</div>
